@@ -1,0 +1,39 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# GitHub recommends pinning actions to a commit SHA.
+# To get a newer version, you will need to update the SHA.
+# You can also reference a tag or branch, but the action may change without warning.
+
+name: Publish Docker image
+
+on: 
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        with:
+          ref: 'aseignard/dockerize'
+          fetch-depth: 0
+      
+      - name: Build the hello-world Docker image
+        run: |
+          echo $CR_PAT | docker login ghcr.io -u antse --password-stdin
+        env:
+          CR_PAT: ${{ secrets.ASE_CR_PAT }}
+      
+      - name: Build and push Docker image
+        run: |
+          git status
+          sudo apt install -y git 
+          docker build . --tag ghcr.io/fundimmo/phxase:latest
+          docker push ghcr.io/fundimmo/phxase:latest
