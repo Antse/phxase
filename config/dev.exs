@@ -21,7 +21,7 @@ config :task_tester, TaskTesterWeb.Endpoint,
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   # http: [ip: {127, 0, 0, 1}, port: 4000],
   https: [
-    host: "console-cloud.fundimmo.dev",
+    url: [host: "console-cloud.fundimmo.dev"],
     port: 4001,
     cipher_suite: :strong,
     keyfile: "priv/cert/cert.key",
