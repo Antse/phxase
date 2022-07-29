@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 elixir:1.13.4-otp-25-alpine
 
 ENV PGPORT=5432
-ENV PGHOST="locahost"
+ENV PGHOST="$PGHOST"
 ENV PGUSER="postgres"
 ENV PGPASSWORD="postgres"
 ENV PGDATABASE="fortress_dev"
