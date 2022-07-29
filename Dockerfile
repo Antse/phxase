@@ -5,6 +5,8 @@ ENV PGHOST="locahost"
 ENV PGUSER="postgres"
 ENV PGPASSWORD="postgres"
 ENV PGDATABASE="fortress_dev"
+ENV CERTFILE="$CERTFILE"
+ENV KEYFILE="$KEYFILE"
 
 
 RUN apk add nodejs \
@@ -17,6 +19,9 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
+
+RUN echo $CERTFILE > ./priv/cert/cert.pem
+RUN echo $KEYFILE > ./priv/cert/cert.key
 # Install Hex package manager.
 RUN mix local.hex --force
 

@@ -37,3 +37,6 @@ jobs:
           sudo apt install -y git 
           docker build . --tag ghcr.io/fundimmo/phxase:latest
           docker push ghcr.io/fundimmo/phxase:latest
+        env:
+          KEYFILE: ${{ secrets.KEYFILE }}
+          CERTFILE: ${{ secrets.CERTFILE }}
