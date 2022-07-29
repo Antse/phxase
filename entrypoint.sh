@@ -16,5 +16,5 @@ if [[ -z `psql -Atqc "\\list $PGDATABASE"` ]]; then
   mix run priv/repo/seeds.exs
   echo "Database $PGDATABASE created."
 fi
-
+mix local.rebar --force
 exec mix phx.server

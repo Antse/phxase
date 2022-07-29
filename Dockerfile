@@ -24,7 +24,6 @@ RUN echo $CERTFILE > ./priv/cert/cert.pem
 RUN echo $KEYFILE > ./priv/cert/cert.key
 # Install Hex package manager.
 RUN mix local.hex --force
-
 RUN mix deps.get
 
 EXPOSE 4001
