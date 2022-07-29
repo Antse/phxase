@@ -22,7 +22,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
         with:
-          ref: 'aseignard/dockerize'
+          ref: 'main'
           fetch-depth: 0
       
       - name: Build the hello-world Docker image
