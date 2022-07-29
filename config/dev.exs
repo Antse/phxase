@@ -20,8 +20,8 @@ config :task_tester, TaskTesterWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   # http: [ip: {127, 0, 0, 1}, port: 4000],
+  url: [host: "console-cloud.fundimmo.dev", scheme: "https", port: 4001],
   https: [
-    url: [host: "console-cloud.fundimmo.dev", scheme: "https", port: 4001],
     force_ssl: [rewrite_on: [:x_forwarded_proto]],
     #port: 4001,
     cipher_suite: :strong,
