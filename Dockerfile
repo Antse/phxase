@@ -19,7 +19,7 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-
+RUN mkdir ./priv/cert
 RUN echo $CERTFILE > ./priv/cert/cert.pem
 RUN echo $KEYFILE > ./priv/cert/cert.key
 # Install Hex package manager.
